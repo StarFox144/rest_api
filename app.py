@@ -19,12 +19,15 @@ class item(Resource):
         items.append(new_item)
         return jsonity(new_item)
 
+
     def delete(self,name):
         global items
         items=[items for item in item if item['name']!=name]
         return{'message':'Item delted'}    
 
+
 api.add_resource(Item, '/item/<string:name>','/item')
+
 
 if __name__=='__main__':
     app.run(debug=True)
